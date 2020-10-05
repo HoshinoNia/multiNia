@@ -32,10 +32,11 @@ app.on('ready', () => {
         width: w,
         height: h,
         webPreferences: {
-            // worldSafeExecuteJavaScript: true, // In Electron 12, the default will be changed to true.
-            nodeIntegration: true,
-            // nodeIntegration: false, // XSS対策としてnodeモジュールをレンダラープロセスで使えなくする
-            // contextIsolation: true, // レンダラープロセスに公開するAPIのファイル
+            // nodeIntegration: true,
+            worldSafeExecuteJavaScript: true, // In Electron 12, the default will be changed to true.
+            nodeIntegration: false, // XSS対策としてnodeモジュールをレンダラープロセスで使えなくする
+            contextIsolation: true, // レンダラープロセスに公開するAPIのファイル
+            preload: __dirname + '/preload.js'
         }
     });
     mainWindow.loadURL('file://' + __dirname + '/index.html');
@@ -83,11 +84,17 @@ app.on('ready', () => {
     //     win = null;
     //     app.quit();
     // });
-    ipcMain.on('asynchronous-message', (event, arg) => { // channel名は「asynchronous-message」
-        console.log(arg) // "ping"を表示
+    // ipcMain.on('asynchronous-message', (event, arg) => { // channel名は「asynchronous-message」
+    //     console.log(arg) // "ping"を表示
+    //     windowArr.join(createWindow());
+    //     // event.reply('asynchronous-reply', 'pong')
+    // })
+
+    // タイマー開始（レンダラープロセスからのIPC通信：invokeメソッド）
+    ipcMain.handle("ipc-newWindow", () => {
         windowArr.join(createWindow());
-        // event.reply('asynchronous-reply', 'pong')
-    })
+        return true;
+    });
 
 });
 
@@ -116,7 +123,9 @@ function createWindow() {
         // titleBarStyle: 'hiddenInset',
         // "title-bar-style": "hidden-inset",
         webPreferences: {
-            nodeIntegration: false
+            worldSafeExecuteJavaScript: true, // In Electron 12, the default will be changed to true.
+            nodeIntegration: false, // XSS対策としてnodeモジュールをレンダラープロセスで使えなくする
+            contextIsolation: true, // レンダラープロセスに公開するAPIのファイル
         }
         // 'node-integration': false
     });
