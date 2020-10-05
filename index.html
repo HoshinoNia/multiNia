@@ -11,15 +11,18 @@
   <link rel="stylesheet" href="style.css">
   <script defer src="./lib/fontawesome_all.min.js"></script>
   <!--load all styles -->
-
+  <!-- <script>
+    var remote = window.require('remote');
+  </script> -->
+  <script type="text/javascript" src="./index.js"></script>
 </head>
 
 <body>
   <!--
 -->
   <div id="btn-wrap">
-    <button class="btn-yt">
-      <i class="fab fa-youtube-square" id="btn-yt"></i>
+    <button class="btn-yt" id="btn-yt" onclick="_ipcSend()">
+      <i class="fab fa-youtube-square btn-youtube"></i>
     </button>
     <i class="far fa-window-close btn-close"></i>
     <i class="fas fa-arrows-alt btn-arrow"></i>
@@ -27,9 +30,8 @@
 -->
   </div>
   <div>
-    <button class="btn" id="btn-test">button</button>
+    <button class="btn btn-test" id="btn-test">button</button>
   </div>
-  <script type="text/javascript" src="./index.js"></script>
 </body>
 
 </html>
