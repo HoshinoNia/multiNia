@@ -12,7 +12,7 @@ const {
 // let win = null;
 const liveUrl = "https://www.youtube.com/results?search_query=%E2%80%9D%E6%98%9F%E9%87%8E%E3%83%8B%E3%82%A2%E2%80%9D+&sp=EgJAAQ%253D%253D";
 let w = 480;
-let h = 270;
+let h = 180;
 
 let mainWindow, backWindow;
 let windowArr = []
@@ -25,7 +25,7 @@ app.on('ready', () => {
         // transparent: false,
         'overlay-scrollbars': false,
         "title-bar-style": "hidden",
-        'always-on-top': true,
+        alwaysOnTop: true,
         // transparent: true,
         // width: 180,
         // height: 80,
@@ -126,6 +126,8 @@ function createWindow() {
             worldSafeExecuteJavaScript: true, // In Electron 12, the default will be changed to true.
             nodeIntegration: false, // XSS対策としてnodeモジュールをレンダラープロセスで使えなくする
             contextIsolation: true, // レンダラープロセスに公開するAPIのファイル
+            // preload: __dirname + '/preloadYt.js'
+            'webviewTag': true,
         }
         // 'node-integration': false
     });
@@ -136,10 +138,11 @@ function createWindow() {
     // win.loadURL('file://' + __dirname + '/index.html');
 
     // ChromiumのDevツールを開く
-    // win.webContents.openDevTools();
+    win.webContents.openDevTools();
 
     // Load a remote URL
-    win.loadURL(liveUrl);
+    // win.loadURL(liveUrl);
+    win.loadURL('file://' + __dirname + '/yt.html');
 
     win.on('closed', function () {
         win = null;

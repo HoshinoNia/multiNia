@@ -5,8 +5,8 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "run": "electron .",
-    "build": "electron-packager ./ multiNia --platform=win32 --arch=x64 --electron-version=10.1.1 --overwrite"
+    "run": "npx electron .",
+    "build": "npx electron-packager ./ multiNia --platform=win32 --arch=x64 --electron-version=10.1.1 --overwrite"
   },
   "keywords": [],
   "author": "",

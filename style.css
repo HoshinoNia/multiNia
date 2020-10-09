@@ -1,45 +1,66 @@
-html{
-    width:100%;
-    height:100%;
+html {
+    width: 100%;
+    height: 100%;
     background-color: transparent;
-   }
-   body{
-    margin:0;padding:0;
-    height:100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
     color: blue;
-    font-size: 48px;
+    font-size: 0;
     -webkit-app-region: drag;
     background: rgba(0, 0, 0, 0);
-    }
-    .div {
-        background-color: white;
-    }
-    .fa-arrows-alt{
-        font-size: 42px;
-    }
-    /* .fa-youtube-square{
+}
+
+.div {
+    background-color: white;
+}
+
+.fa-arrows-alt {
+    font-size: 42px;
+}
+
+/* .fa-youtube-square{
         font-size: 60px;
     } */
 
-   
-   #menu-bar{
-    width:100%;
-    padding:5px;
-    max-height:30px;
-    background-color:#EFF0EE;
-    color:#959595;
-    display:block;
+.wv {
+    width: 480px;
+    height: 270px;
+    display: inline-block;
+}
+
+iframe {
+    flex: auto;
+    width: 100%;
+    height: 100%;
+    border: 0px;
+}
+
+
+#menu-bar {
+    width: 100%;
+    padding: 5px;
+    max-height: 30px;
+    background-color: #EFF0EE;
+    color: #959595;
+    display: block;
     white-space: nowrap;
-   }
-   #menu-bar input{
-    width:80%;
-    min-height:20px;
-    font-size:14px;
-   }
-   #menu-bar button{
-    font-size:14px;
-    min-height:20px;
-   }
-   #webview_wrapper{
-    height:100%;
-   }
+}
+
+#menu-bar input {
+    width: 80%;
+    min-height: 20px;
+    font-size: 14px;
+}
+
+#menu-bar button {
+    font-size: 14px;
+    min-height: 20px;
+}
+
+#webview_wrapper {
+    height: 100%;
+}
