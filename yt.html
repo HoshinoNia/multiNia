@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="./yt.js"></script>
+    <script defer src="./lib/fontawesome_all.min.js"></script>
+</head>
+
+<body>
+    <div class="drag drag-bottom"></div>
+    <div class="drag drag-left"></div>
+    <div class="drag drag-right"></div>
+    <div id="btn-wrap">
+        <div class="drag"></div>
+        <!-- <button class="btn-yt" id="btn-yt">
+            <i class="fab fa-youtube-square btn-youtube"></i>
+        </button> -->
+        <button class="btn-close" id=btn-close>
+            <i class="far fa-window-close"></i>
+        </button>
+    </div>
+    <webview class="wv" id="yt" preload="preloadYt.js"
+        src="https://www.youtube.com/results?search_query=%E2%80%9D%E6%98%9F%E9%87%8E%E3%83%8B%E3%82%A2%E2%80%9D+&sp=EgJAAQ%253D%253D">
+    </webview>
+</body>
+
+</html>
